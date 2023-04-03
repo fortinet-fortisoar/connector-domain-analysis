@@ -16,7 +16,7 @@ Certified: No
 
 All connectors provided by FortiSOAR™ are delivered using a FortiSOAR™ repository. Therefore, you must set up your FortiSOAR™ repository and use the `yum` command to install connectors:
 
-`yum install domain-analytics`
+`yum install domain-analysis`
 
 For the detailed procedure to install a connector, click[ here.](https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector)
 
