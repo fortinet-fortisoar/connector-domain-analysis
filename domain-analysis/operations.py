@@ -1,5 +1,6 @@
 import arrow
 import os
+import re
 import whodap
 import validators
 import tldextract
@@ -10,8 +11,19 @@ from .freq.freq import *
 
 logger = get_logger('domain_analysis')
 CACHE_DIR = '/tmp'
+PURGE_FILE_HOURS = 48
 FREQTABLE = os.path.dirname(os.path.realpath(__file__)) + '/freq/freqtable.freq'
 
+def _purge_old_files(cache_dir):
+    files = [f for f in os.listdir(cache_dir) if re.match(r'[A-Z0-9]+-DEFAULT.csv', f)]
+    for file in files:
+        filepath = cache_dir + '/' + file
+        mtime = os.path.getmtime(filepath) 
+        time_delta = (arrow.utcnow().int_timestamp - mtime) / 3600
+        if time_delta >= PURGE_FILE_HOURS:
+            logger.error('Deleting the file: {}. It is older than: {} hours'.format(file, time_delta))
+            os.remove(filepath)
+           
 
 def analyze_domain(config, params):
     try:
@@ -19,7 +31,7 @@ def analyze_domain(config, params):
         fc = FreqCounter()
         fc.load(FREQTABLE)
         total_word_probability, average_probability = fc.probability(domain)
-        return {'Total Word Probability': total_word_probability, 'Average Probability': average_probability}
+        return {'totalWordProbability': total_word_probability, 'averageProbability': average_probability}
 
     except Exception as exp:
         logger.exception('Error Executing Code: {}'.format(exp))
@@ -30,6 +42,7 @@ def get_domain_popularity(config, params):
         domain = params.get('domain')
         list_date = params.get('list_date', None)
         list_date = arrow.get(list_date).format("YYYY-MM-DD") if list_date else None
+        _purge_old_files(CACHE_DIR)
         tranco = Tranco(cache=True, cache_dir=CACHE_DIR)
         date_list = tranco.list()
         if list_date:
