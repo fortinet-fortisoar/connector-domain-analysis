@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "label": "Domain Analysis",
     "description": "Whois for IPs, Domains and ASNs in addition to DGA detection and domain popularity lookup",
-    "publisher": "Naili.M",
+    "publisher": "Fortinet CSE",
     "icon_small_name": "small.png",
     "icon_large_name": "large.png",
     "configuration": {},
