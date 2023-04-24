@@ -21,9 +21,11 @@ There are no prerequisites to configuring this connector.
 
 ## Configuring the connector
 For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
+
 ### Configuration parameters
 None.
 </tbody></table>
+
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
 <table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Analyze Domain<br></td><td>Get DGA probability. Typically an Average Probability below 4 indicates a DGA<br></td><td>analyze_domain <br/><br></td></tr>
@@ -31,10 +33,12 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Whois<br></td><td>Whois lookup for domains, IP addresses and Autonomous Systems<br></td><td>whois <br/><br></td></tr>
 <tr><td>Get Domain Report<br></td><td>Gets domain report with all available metrics<br></td><td>get_domain_report <br/><br></td></tr>
 </tbody></table>
+
 ### operation: Analyze Domain
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Domain Name<br></td><td>Specify the domain name for which you want to retrieve a DGA propability.<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -47,11 +51,13 @@ The output contains the following populated JSON schema:
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "operation": "",
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "execution_time": ""
 </code><code><br>}</code>
+
 ### operation: Get Domain Popularity
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Domain Name<br></td><td>Specify the domain name for which you want to retrieve a domain popularity.<br>
 </td></tr><tr><td>List Date<br></td><td>(optional) Uses the list of this date, default date is today<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 
@@ -60,6 +66,7 @@ The output contains a non-dictionary value.
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Input Value<br></td><td>Domain name, IPv4, IPv6 or ASN to get whois data for<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -177,10 +184,12 @@ The output contains the following populated JSON schema:
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "operation": "",
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "execution_time": ""
 </code><code><br>}</code>
+
 ### operation: Get Domain Report
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Domain Name<br></td><td>Specify the domain name for which you want to retrieve a domain report.<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -305,6 +314,7 @@ The output contains the following populated JSON schema:
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "operation": "",
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "execution_time": ""
 </code><code><br>}</code>
+
 ## Included playbooks
 The `Sample - domain-analysis - 1.0.0` playbook collection comes bundled with the Domain Analysis connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR<sup>TM</sup> after importing the Domain Analysis connector.
 
