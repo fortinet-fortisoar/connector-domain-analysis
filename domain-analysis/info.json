@@ -1,383 +1,367 @@
 {
-    "name": "domain-analysis",
-    "version": "1.0.0",
-    "label": "Domain Analysis",
-    "description": "Whois for IPs, Domains and ASNs in addition to DGA detection and domain popularity lookup",
-    "publisher": "Fortinet CSE",
-    "icon_small_name": "small.png",
-    "icon_large_name": "large.png",
-    "help_online": "https://github.com/fortinet-fortisoar/connector-domain-analysis/blob/release/1.0.0/docs/DomainAnalysis.md",
-    "configuration": {},
-    "operations": [
+  "name": "domain-analysis",
+  "version": "1.0.0",
+  "label": "Domain Analysis",
+  "description": "Whois for IPs, Domains and ASNs in addition to DGA detection and domain popularity lookup",
+  "publisher": "Fortinet CSE",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-domain-analysis/blob/release/1.0.0/docs/DomainAnalysis.md",
+  "configuration": {},
+  "operations": [
+    {
+      "title": "Analyze Domain",
+      "description": "Get DGA probability. Typically an Average Probability below 4 indicates a DGA",
+      "tooltip": "Get DGA probability",
+      "operation": "analyze_domain",
+      "annotation": "analyze_domain",
+      "parameters": [
         {
-            "title": "Analyze Domain",
-            "description": "Get DGA probability. Typically an Average Probability below 4 indicates a DGA",
-            "tooltip":"Get DGA probability",
-            "operation": "analyze_domain",
-            "annotation": "analyze_domain",
-            "parameters": [
-                {
-                    "title": "Domain Name",
-                    "description": "Specify the domain name for which you want to retrieve a DGA propability.",
-                    "name": "domain",
-                    "type": "text",
-                    "visible": true,
-                    "editable": true,
-                    "required": true
-                }
-            ],
-            "output_schema": {
-                "data":{
-                   "Average Probability":"",
-                   "Total Word Probability":""
-                },
-                "status":"",
-                "message":"",
-                "operation":"",
-                "execution_time":""
-             },
-            "enabled": true
+          "title": "Domain Name",
+          "description": "Specify the domain name for which you want to retrieve a DGA propability.",
+          "name": "domain",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {
+        "data": {
+          "Average Probability": "",
+          "Total Word Probability": ""
+        },
+        "status": "",
+        "message": "",
+        "operation": "",
+        "execution_time": ""
+      },
+      "enabled": true
+    },
+    {
+      "title": "Get Domain Popularity",
+      "description": "Gets the rank within the top one million popular domains (-1 = not found)",
+      "tooltip": "Gets the rank within the top one million popular domains (-1 = not found)",
+      "operation": "get_domain_popularity",
+      "annotation": "get_domain_popularity",
+      "parameters": [
+        {
+          "title": "Domain Name",
+          "description": "Specify the domain name for which you want to retrieve a domain popularity.",
+          "name": "domain",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
         },
         {
-            "title": "Get Domain Popularity",
-            "description": "Gets the rank within the top one million popular domains (-1 = not found)",
-            "tooltip":"Gets the rank within the top one million popular domains (-1 = not found)",
-            "operation": "get_domain_popularity",
-            "annotation": "get_domain_popularity",
-            "parameters": [
-                {
-                    "title": "Domain Name",
-                    "description": "Specify the domain name for which you want to retrieve a domain popularity.",
-                    "name": "domain",
-                    "type": "text",
-                    "visible": true,
-                    "editable": true,
-                    "required": true
-                },
-                 {
-                    "title":"List Date",
-                    "type":"datetime",
-                    "name":"list_date",
-                    "tooltip":"(optional) Uses the list of this date, default date is today",
-                    "description":"(optional) Uses the list of this date, default date is today",
-                    "required":false,
-                    "editable":true,
-                    "visible":true
-                 }
-            ],
-            "output_schema": "",
-            "enabled": true
-        },
+          "title": "List Date",
+          "type": "datetime",
+          "name": "list_date",
+          "tooltip": "(optional) Uses the list of this date, default date is today",
+          "description": "(optional) Uses the list of this date, default date is today",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ],
+      "output_schema": "",
+      "enabled": true
+    },
+    {
+      "title": "Whois",
+      "description": "Whois lookup for domains, IP addresses and Autonomous Systems",
+      "tooltip": "Whois lookup for domains, IP addresses and Autonomous Systems",
+      "operation": "whois",
+      "annotation": "whois",
+      "parameters": [
         {
-            "title": "Whois",
-            "description": "Whois lookup for domains, IP addresses and Autonomous Systems",
-            "tooltip":"Whois lookup for domains, IP addresses and Autonomous Systems",
-            "operation": "whois",
-            "annotation": "whois",
-            "parameters": [
+          "title": "Input Value",
+          "name": "input_value",
+          "description": "Domain name, IPv4, IPv6 or ASN to get whois data for",
+          "placeholder": "fortinet.com or 97.36.34.36 or 2a03:2880:f11c:8183:face:b00c::25de or 40934",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {
+        "data": {
+          "links": [
+            {
+              "rel": "",
+              "href": "",
+              "type": "",
+              "value": ""
+            },
+            {
+              "rel": "",
+              "href": "",
+              "type": "",
+              "value": ""
+            }
+          ],
+          "events": [
+            {
+              "eventDate": "",
+              "eventAction": ""
+            },
+            {
+              "eventDate": "",
+              "eventAction": ""
+            },
+            {
+              "eventDate": "",
+              "eventAction": ""
+            },
+            {
+              "eventDate": "",
+              "eventAction": ""
+            }
+          ],
+          "handle": "",
+          "status": [
+          ],
+          "ldhName": "",
+          "notices": [
+            {
+              "links": [
                 {
-                    "title": "Input Value",
-                    "name": "input_value",
-                    "description": "Domain name, IPv4, IPv6 or ASN to get whois data for",
-                    "placeholder": "fortinet.com or 97.36.34.36 or 2a03:2880:f11c:8183:face:b00c::25de or 40934",
-                    "type": "text",
-                    "visible": true,
-                    "editable": true,
-                    "required": true
+                  "href": "",
+                  "type": ""
                 }
-            ],
-            "output_schema": {
-                "data":{
-                   "links":[
-                      {
-                         "rel":"",
-                         "href":"",
-                         "type":"",
-                         "value":""
-                      },
-                      {
-                         "rel":"",
-                         "href":"",
-                         "type":"",
-                         "value":""
-                      }
-                   ],
-                   "events":[
-                      {
-                         "eventDate":"",
-                         "eventAction":""
-                      },
-                      {
-                         "eventDate":"",
-                         "eventAction":""
-                      },
-                      {
-                         "eventDate":"",
-                         "eventAction":""
-                      },
-                      {
-                         "eventDate":"",
-                         "eventAction":""
-                      }
-                   ],
-                   "handle":"",
-                   "status":[
-                      
-                   ],
-                   "ldhName":"",
-                   "notices":[
-                      {
-                         "links":[
-                            {
-                               "href":"",
-                               "type":""
-                            }
-                         ],
-                         "title":"",
-                         "description":[
-                            
-                         ]
-                      },
-                      {
-                         "links":[
-                            {
-                               "href":"",
-                               "type":""
-                            }
-                         ],
-                         "title":"",
-                         "description":[
-                            
-                         ]
-                      },
-                      {
-                         "links":[
-                            {
-                               "href":"",
-                               "type":""
-                            }
-                         ],
-                         "title":"",
-                         "description":[
-                            
-                         ]
-                      }
-                   ],
-                   "entities":[
-                      {
-                         "roles":[
-                            
-                         ],
-                         "handle":"",
-                         "entities":[
-                            {
-                               "roles":[
-                                  
-                               ],
-                               "vcardArray":[
-                                  
-                               ],
-                               "objectClassName":""
-                            }
-                         ],
-                         "publicIds":[
-                            {
-                               "type":"",
-                               "identifier":""
-                            }
-                         ],
-                         "vcardArray":[
-                            
-                         ],
-                         "objectClassName":""
-                      }
-                   ],
-                   "secureDNS":{
-                      "delegationSigned":""
-                   },
-                   "nameservers":[
-                      {
-                         "ldhName":"",
-                         "objectClassName":""
-                      },
-                      {
-                         "ldhName":"",
-                         "objectClassName":""
-                      },
-                      {
-                         "ldhName":"",
-                         "objectClassName":""
-                      }
-                   ],
-                   "objectClassName":"",
-                   "rdapConformance":[
-                      
-                   ]
-                },
-                "status":"",
-                "message":"",
-                "operation":"",
-                "execution_time":""
-             },
-            "enabled": true
+              ],
+              "title": "",
+              "description": [
+              ]
+            },
+            {
+              "links": [
+                {
+                  "href": "",
+                  "type": ""
+                }
+              ],
+              "title": "",
+              "description": [
+              ]
+            },
+            {
+              "links": [
+                {
+                  "href": "",
+                  "type": ""
+                }
+              ],
+              "title": "",
+              "description": [
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "roles": [
+              ],
+              "handle": "",
+              "entities": [
+                {
+                  "roles": [
+                  ],
+                  "vcardArray": [
+                  ],
+                  "objectClassName": ""
+                }
+              ],
+              "publicIds": [
+                {
+                  "type": "",
+                  "identifier": ""
+                }
+              ],
+              "vcardArray": [
+              ],
+              "objectClassName": ""
+            }
+          ],
+          "secureDNS": {
+            "delegationSigned": ""
+          },
+          "nameservers": [
+            {
+              "ldhName": "",
+              "objectClassName": ""
+            },
+            {
+              "ldhName": "",
+              "objectClassName": ""
+            },
+            {
+              "ldhName": "",
+              "objectClassName": ""
+            }
+          ],
+          "objectClassName": "",
+          "rdapConformance": [
+          ]
         },
+        "status": "",
+        "message": "",
+        "operation": "",
+        "execution_time": ""
+      },
+      "enabled": true
+    },
+    {
+      "title": "Get Domain Report",
+      "description": "Gets domain report with all available metrics",
+      "tooltip": "Gets domain report with all available metrics",
+      "operation": "get_domain_report",
+      "annotation": "get_domain_report",
+      "parameters": [
         {
-            "title": "Get Domain Report",
-            "description": "Gets domain report with all available metrics",
-            "tooltip":"Gets domain report with all available metrics",
-            "operation": "get_domain_report",
-            "annotation": "get_domain_report",
-            "parameters": [
-                {
-                    "title": "Domain Name",
-                    "description": "Specify the domain name for which you want to retrieve a domain report.",
-                    "name": "domain",
-                    "type": "text",
-                    "visible": true,
-                    "editable": true,
-                    "required": true
-                }
+          "title": "Domain Name",
+          "description": "Specify the domain name for which you want to retrieve a domain report.",
+          "name": "domain",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {
+        "data": {
+          "DGA": {
+            "Average Probability": "",
+            "Total Word Probability": ""
+          },
+          "Whois": {
+            "links": [
+              {
+                "rel": "",
+                "href": "",
+                "type": "",
+                "value": ""
+              },
+              {
+                "rel": "",
+                "href": "",
+                "type": "",
+                "value": ""
+              }
             ],
-            "output_schema": {
-                "data":{
-                   "DGA":{
-                      "Average Probability":"",
-                      "Total Word Probability":""
-                   },
-                   "Whois":{
-                      "links":[
-                         {
-                            "rel":"",
-                            "href":"",
-                            "type":"",
-                            "value":""
-                         },
-                         {
-                            "rel":"",
-                            "href":"",
-                            "type":"",
-                            "value":""
-                         }
-                      ],
-                      "events":[
-                         {
-                            "eventDate":"",
-                            "eventAction":""
-                         },
-                         {
-                            "eventDate":"",
-                            "eventAction":""
-                         },
-                         {
-                            "eventDate":"",
-                            "eventAction":""
-                         },
-                         {
-                            "eventDate":"",
-                            "eventAction":""
-                         }
-                      ],
-                      "handle":"",
-                      "status":[
-                         
-                      ],
-                      "ldhName":"",
-                      "notices":[
-                         {
-                            "links":[
-                               {
-                                  "href":"",
-                                  "type":""
-                               }
-                            ],
-                            "title":"",
-                            "description":[
-                               
-                            ]
-                         },
-                         {
-                            "links":[
-                               {
-                                  "href":"",
-                                  "type":""
-                               }
-                            ],
-                            "title":"",
-                            "description":[
-                               
-                            ]
-                         },
-                         {
-                            "links":[
-                               {
-                                  "href":"",
-                                  "type":""
-                               }
-                            ],
-                            "title":"",
-                            "description":[
-                               
-                            ]
-                         }
-                      ],
-                      "entities":[
-                         {
-                            "roles":[
-                               
-                            ],
-                            "handle":"",
-                            "entities":[
-                               {
-                                  "roles":[
-                                     
-                                  ],
-                                  "vcardArray":"",
-                                  "objectClassName":""
-                               }
-                            ],
-                            "publicIds":[
-                               {
-                                  "type":"",
-                                  "identifier":""
-                               }
-                            ],
-                            "vcardArray":"",
-                            "objectClassName":""
-                         }
-                      ],
-                      "secureDNS":{
-                         "delegationSigned":""
-                      },
-                      "nameservers":[
-                         {
-                            "ldhName":"",
-                            "objectClassName":""
-                         },
-                         {
-                            "ldhName":"",
-                            "objectClassName":""
-                         },
-                         {
-                            "ldhName":"",
-                            "objectClassName":""
-                         }
-                      ],
-                      "objectClassName":"",
-                      "rdapConformance":[
-                         
-                      ]
-                   },
-                   "Popularity":""
-                },
-                "status":"",
-                "message":"",
-                "operation":"",
-                "execution_time":""
-             },
-            "enabled": true
-        }        
-    ],
-    "category": "Enrichment",
-    "active": true,
-    "cs_compatible": true
+            "events": [
+              {
+                "eventDate": "",
+                "eventAction": ""
+              },
+              {
+                "eventDate": "",
+                "eventAction": ""
+              },
+              {
+                "eventDate": "",
+                "eventAction": ""
+              },
+              {
+                "eventDate": "",
+                "eventAction": ""
+              }
+            ],
+            "handle": "",
+            "status": [
+            ],
+            "ldhName": "",
+            "notices": [
+              {
+                "links": [
+                  {
+                    "href": "",
+                    "type": ""
+                  }
+                ],
+                "title": "",
+                "description": [
+                ]
+              },
+              {
+                "links": [
+                  {
+                    "href": "",
+                    "type": ""
+                  }
+                ],
+                "title": "",
+                "description": [
+                ]
+              },
+              {
+                "links": [
+                  {
+                    "href": "",
+                    "type": ""
+                  }
+                ],
+                "title": "",
+                "description": [
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "roles": [
+                ],
+                "handle": "",
+                "entities": [
+                  {
+                    "roles": [
+                    ],
+                    "vcardArray": "",
+                    "objectClassName": ""
+                  }
+                ],
+                "publicIds": [
+                  {
+                    "type": "",
+                    "identifier": ""
+                  }
+                ],
+                "vcardArray": "",
+                "objectClassName": ""
+              }
+            ],
+            "secureDNS": {
+              "delegationSigned": ""
+            },
+            "nameservers": [
+              {
+                "ldhName": "",
+                "objectClassName": ""
+              },
+              {
+                "ldhName": "",
+                "objectClassName": ""
+              },
+              {
+                "ldhName": "",
+                "objectClassName": ""
+              }
+            ],
+            "objectClassName": "",
+            "rdapConformance": [
+            ]
+          },
+          "Popularity": ""
+        },
+        "status": "",
+        "message": "",
+        "operation": "",
+        "execution_time": ""
+      },
+      "enabled": true
+    }
+  ],
+  "category": "Enrichment",
+  "active": true,
+  "cs_compatible": true
 }
